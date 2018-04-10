@@ -11,7 +11,7 @@ public class G1ControlPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	protected CommandButton readyButton, cancelButton, exitButton;
+	protected CommandButton readyButton, cancelButton, exitButton, pauseButton;
 	
 	protected CommandButton speedUpButton, speedDownButton;
 	
@@ -50,6 +50,12 @@ public class G1ControlPanel extends JPanel {
 		exitButton.setSize(80, 24);
 		exitButton.setLocation(0, 200);
 		this.add(exitButton);
+
+		pauseButton = new CommandButton("暂停");
+		pauseButton.setSize(80, 24);
+		pauseButton.setLocation(0, 250);
+		this.add(pauseButton);
+
 	}
 
 }
