@@ -1,0 +1,3 @@
+grant codeBase "file:./liangfei/myp2p/russiablock/controller/command/ExitCommand.class" {
+	permission java.lang.RuntimePermission "exitVM";
+}
