@@ -35,15 +35,17 @@ public class BaseBlock implements Block {
 	}
 	
 	// 实现Block接口
-
+	@Override
 	public Block getNextBolck() {
 		return nextBolck;
 	}
 
+	@Override
 	public Block getPreviousBolck() {
 		return previousBolck;
 	}
 
+	@Override
 	public Box getBox(int index) {
 		if (index >= 0 && index < getBlockSize()) {
 			return boxes[index];
@@ -51,10 +53,12 @@ public class BaseBlock implements Block {
 		return null;
 	}
 
+	@Override
 	public int getBlockSize() {
 		return boxes.length;
 	}
 
+	@Override
 	public BlockIterator iterator() {
 		return new BlockIterator(this);
 	}

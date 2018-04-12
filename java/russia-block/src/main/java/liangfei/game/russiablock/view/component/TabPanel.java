@@ -14,7 +14,8 @@ public class TabPanel extends JPanel {
 		this.tabChars = tabText.toCharArray();
 		this.setOpaque(false);
 	}
-	
+
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		int w = super.getWidth();

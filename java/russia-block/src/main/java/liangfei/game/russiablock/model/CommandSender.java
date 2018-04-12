@@ -42,7 +42,7 @@ public class CommandSender implements SpeedSubject, SpeedCommandReceiver {
 	}
 	
 	// SpeedCommandReceiver ---------
-
+	@Override
 	public void speedUp() {
 		if (! isStart) {
 			return ;
@@ -50,6 +50,7 @@ public class CommandSender implements SpeedSubject, SpeedCommandReceiver {
 		setIntervalTime(getIntervalTime() - 20);
 	}
 
+	@Override
 	public void speedDown() {
 		if (! isStart) {
 			return ;
@@ -81,11 +82,13 @@ public class CommandSender implements SpeedSubject, SpeedCommandReceiver {
 	// 速度变化通知 ---------
 	
 	private Set speedListenerSet = new HashSet();
-	
+
+	@Override
 	public void addSpeedListener(SpeedListener speedListener) {
 		speedListenerSet.add(speedListener);
 	}
-	
+
+	@Override
 	public void removeSpeedListener(SpeedListener speedListener) {
 		speedListenerSet.remove(speedListener);
 	}

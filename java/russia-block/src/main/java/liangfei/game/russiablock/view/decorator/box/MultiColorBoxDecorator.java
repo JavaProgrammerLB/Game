@@ -15,6 +15,7 @@ public class MultiColorBoxDecorator extends ColorBoxDecorator {
 			Color.decode("#ffcc00"), 
 	};
 
+	@Override
 	protected Color getBoxColor(int style) {
 		if (style < 0 || style >= BOX_COLORS.length) {
 			return Color.BLACK;

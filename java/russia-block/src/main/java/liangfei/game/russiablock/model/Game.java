@@ -31,7 +31,7 @@ public class Game implements GameSubject, ReadyListener, OverListener {
 	// 构造子注入StartResolver,StopResolver (策略模式) --------
 	
 	/**
-	 * @param StartResolver -游戏是否开始决策者
+	 * @param startResolver -游戏是否开始决策者
 	 * @param stopResolver -游戏是否结束决策者
 	 */
 	public Game(StartResolver startResolver, StopResolver stopResolver, int members) {
@@ -75,7 +75,7 @@ public class Game implements GameSubject, ReadyListener, OverListener {
 	}
 	
 	// Player准备状态监听 ---------
-	
+	@Override
 	public void readyStateChanged(boolean isReady) {
 		checkStart();
 		if (! isReady) {
@@ -98,7 +98,7 @@ public class Game implements GameSubject, ReadyListener, OverListener {
 	}
 	
 	// Player结束状态监听 ---------
-	
+	@Override
 	public void gameOvered() {
 		checkStop();
 	}
@@ -121,11 +121,13 @@ public class Game implements GameSubject, ReadyListener, OverListener {
 	//Game状态变化通知 (观察者模式)
 	
 	private Set gameStateListenerSet = new HashSet();
-	
+
+	@Override
 	public void addGameListener(GameListener gameStateListener) {
 		gameStateListenerSet.add(gameStateListener);
 	}
-	
+
+	@Override
 	public void removeGameListener(GameListener gameStateListener) {
 		gameStateListenerSet.remove(gameStateListener);
 	}

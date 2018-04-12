@@ -22,7 +22,8 @@ public class RemoveRowsPanel extends CountPanel implements RemoveRowsListener {
 		}
 		this.removeRowsSubject = removeRowsSubject;
 	}
-	
+
+	@Override
 	public void rowsRemoved(Set removeRows) {
 		totalRemoveRows += removeRows.size();
 		super.setCount(totalRemoveRows);

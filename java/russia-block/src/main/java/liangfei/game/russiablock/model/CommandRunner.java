@@ -14,6 +14,7 @@ public class CommandRunner implements Runnable {
 		this.command = command;
 	}
 
+	@Override
 	public void run() {
 		while (isRun && intervalTime > 0) {
 			try {

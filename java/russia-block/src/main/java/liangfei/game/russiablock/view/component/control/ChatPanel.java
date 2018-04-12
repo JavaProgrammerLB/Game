@@ -52,6 +52,7 @@ public class ChatPanel extends JPanel {
 		String[] phrase = { " --短语--", "快开啊！", "水平太烂了！", "你好厉害啊！" };
 		phraseComboBox = new JComboBox(phrase);
 		phraseComboBox.addItemListener(new ItemListener() {
+			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.DESELECTED
 						&& phraseComboBox.getSelectedIndex() > 0) {
@@ -70,6 +71,7 @@ public class ChatPanel extends JPanel {
 
 		cleanButton = new JButton("清屏");
 		cleanButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				messageTextArea.setText("");
 				chatTextField.requestFocus();
@@ -94,6 +96,7 @@ public class ChatPanel extends JPanel {
 
 		sendButton = new JButton("发言");
 		sendButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				sendMessage();
 			}

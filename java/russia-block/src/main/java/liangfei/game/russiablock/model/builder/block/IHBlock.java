@@ -19,14 +19,17 @@ public class IHBlock implements Block {
 		
 	}
 
+	@Override
 	public Block getNextBolck() {
 		return new IVBlock();
 	}
 
+	@Override
 	public Block getPreviousBolck() {
 		return new IVBlock();
 	}
 
+	@Override
 	public Box getBox(int index) {
 		if (index >= 0 && index < getBlockSize()) {
 			return boxes[index];
@@ -34,10 +37,12 @@ public class IHBlock implements Block {
 		return null;
 	}
 
+	@Override
 	public int getBlockSize() {
 		return boxes.length;
 	}
 
+	@Override
 	public BlockIterator iterator() {
 		return new BlockIterator(this);
 	}

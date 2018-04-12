@@ -15,6 +15,7 @@ public class RandomProvider implements BlockProvider {
 		 blockList = new ArrayList(blocks);
 	}
 
+	@Override
 	public Block getNextBlock() {
 		int style = RandomGenerator.getRandomGenerator().randomByMax(blockList.size());
 		return (Block)blockList.get(style);

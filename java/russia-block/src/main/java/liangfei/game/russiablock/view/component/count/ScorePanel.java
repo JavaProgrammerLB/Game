@@ -24,7 +24,8 @@ public class ScorePanel extends CountPanel implements RemoveRowsListener {
 		}
 		this.removeRowsSubject = removeRowsSubject;
 	}
-	
+
+	@Override
 	public void rowsRemoved(Set removeRows) {
 		int level = removeRows.size() - 1;
 		if (level >= 0 && level < levels.length) {

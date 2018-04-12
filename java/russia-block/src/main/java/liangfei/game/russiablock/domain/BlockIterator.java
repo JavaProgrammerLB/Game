@@ -16,7 +16,7 @@ public class BlockIterator {
 	
 	/**
 	 * 构造子注入所需迭代的Block
-	 * @param Block - 要迭代的Block
+	 * @param block - 要迭代的Block
 	 */
 	public BlockIterator(Block block) {
 		this.block = block;

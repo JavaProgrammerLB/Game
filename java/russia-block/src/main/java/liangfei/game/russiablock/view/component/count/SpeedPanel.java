@@ -18,7 +18,8 @@ public class SpeedPanel extends CountPanel implements SpeedListener {
 		}
 		this.speedSubject = speedSubject;
 	}
-	
+
+	@Override
 	public void speedChanged(int speed) {
 		super.setCount(speed);
 	}

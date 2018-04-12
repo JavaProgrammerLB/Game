@@ -10,6 +10,7 @@ import liangfei.game.russiablock.controller.command.CommandInvoker;
 
 public class CommandActionListener implements ActionListener {
 
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		CommandInvoker commandInvoker = (CommandInvoker)e.getSource();
 		commandInvoker.invokeCommand();

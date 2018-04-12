@@ -42,12 +42,14 @@ public class BoardCanvas extends JPanel implements BoardListener {
 		}
 		this.boardSubject = boardSubject;
 	}
-	
+
+	@Override
 	public void boardChanged(Board board) {
 		this.board = board;
 		repaint();
 	}
-	
+
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (board != null) {

@@ -88,13 +88,14 @@ public class BlockContext implements BlockSubject, LocationSubject, TurnCommandR
 	
 	// 切换动作 (状态模式)
 	// Board为Context角色，Block为State接口，BaseBlock为具
-	
+	@Override
 	public void turnNext() {
 		if(block != null) {
 			turnTo(block.getNextBolck());
 		}
 	}
-	
+
+	@Override
 	public void turnPrevious() {
 		if(block != null) {
 			turnTo(block.getPreviousBolck());
@@ -126,24 +127,28 @@ public class BlockContext implements BlockSubject, LocationSubject, TurnCommandR
 	// Move属于Canvas行为
 	// Bolck没有Canvas是不具备Move行为的
 	// 所以Move不应放在Bolck中
+	@Override
 	public void moveLeft() {
 		if (location != null) {
 			moveTo(location.getLeftLocation());
 		}
 	}
-	
+
+	@Override
 	public void moveRight() {
 		if (location != null) {
 			moveTo(location.getRightLocation());
 		}
 	}
-	
+
+	@Override
 	public void moveDown() {
 		if (location != null) {
 			moveTo(location.getDownLocation());
 		}
 	}
-	
+
+	@Override
 	public void moveBottom() {
 		if (location != null) {
 			Location toLocation = location.getDownLocation();
@@ -176,11 +181,13 @@ public class BlockContext implements BlockSubject, LocationSubject, TurnCommandR
 	// Block方向状态变化通知 (观察者模式)
 	
 	private Set blockListenerSet = new HashSet();
-	
+
+	@Override
 	public void addBlockListener(BlockListener blockListener) {
 		blockListenerSet.add(blockListener);
 	}
-	
+
+	@Override
 	public void removeBlockListener(BlockListener blockListener) {
 		blockListenerSet.remove(blockListener);
 	}
@@ -197,11 +204,13 @@ public class BlockContext implements BlockSubject, LocationSubject, TurnCommandR
 	// Block位置状态变化通知 (观察者模式)
 	
 	private Set locationListenerSet = new HashSet();
-	
+
+	@Override
 	public void addLocationListener(LocationListener locationListener) {
 		locationListenerSet.add(locationListener);
 	}
-	
+
+	@Override
 	public void removeLocationListener(LocationListener locationListener) {
 		locationListenerSet.remove(locationListener);
 	}

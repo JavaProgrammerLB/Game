@@ -27,7 +27,7 @@ public interface Block {
 	 * 
 	 * 如果遍历,请使用BlockIterator读取
 	 * 
-	 * @see iterator()
+	 * @see @link iterator()
 	 */
 	public Box getBox(int index);
 	

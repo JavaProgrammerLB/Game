@@ -8,6 +8,7 @@ public class ClearBoardCommand implements Command {
 		this.boardCommandReceiver = boardCommandReceiver;
 	}
 
+	@Override
 	public void execute() {
 		boardCommandReceiver.clearBoard();
 	}

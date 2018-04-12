@@ -26,7 +26,8 @@ public class CommandMenuItem extends JMenuItem implements CommandInvoker {
 	// CommandInvoker ---------
 	
 	private Set commands = new HashSet();
-	
+
+	@Override
 	public void invokeCommand() {
 		if (commands != null && ! commands.isEmpty()) {
 			for (Iterator i = commands.iterator(); i.hasNext();) {

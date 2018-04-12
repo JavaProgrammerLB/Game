@@ -50,7 +50,7 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 	// ---------------------------------------------
 	// --------------- 画板状态 ----------------------
 	// ---------------------------------------------
-	
+	@Override
 	public Box getBox(int row, int col) {
 		if (row >= 0 && row < getBoardRows()
 				&& col >= 0 && col < getBoardCols()) {
@@ -58,15 +58,18 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 		}
 		return null;
 	}
-	
+
+	@Override
 	public int getBoardRows() {
 		return boardRows;
 	}
-	
+
+	@Override
 	public int getBoardCols() {
 		return boardCols;
 	}
-	
+
+	@Override
 	public int getBlankRows() {
 		return blankRows;
 	}
@@ -85,14 +88,15 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 	// ---------------------------------------------
 	
 	// 命令接收 ----------
-	
+	@Override
 	public void clearBoard() {
 		boxes = new Box[boardRows][boardCols];
 		fireBoardChanged();
 	}
 	
 	private boolean isEven = false;
-	
+
+	@Override
 	public void addRows(int rows) {
 		int bottomRow = getBoardRows() - 1;
 		for (int i = 0; i < rows; i++) {
@@ -101,7 +105,8 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 		}
 		fireBoardChanged();
 	}
-	
+
+	@Override
 	public void removeRows(int rows) {
 		int bottomRow = getBoardRows() - 1;
 		for (int i = 0; i < rows; i++) {
@@ -112,14 +117,14 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 	}
 	
 	// LocationProvider -----------
-	
+	@Override
 	public Location getBeginLocation(Block block) {
 		Location location = new Location(2, getBoardCols() / 2 - 1);
 		return upLocation(block, location);
 	}
 	
 	// ChangeResolver -----------
-	
+	@Override
 	public boolean canChangeTo(Block block, Location location) {
 		if (block == null || location == null) {
 			return false;
@@ -140,7 +145,8 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 		}
 		return true;
 	}
-	
+
+	@Override
 	public synchronized void addBlock(Block block, Location location) {
 		location = upLocation(block, location);
 		Set effectRows = new IntegerSortSet();
@@ -279,11 +285,13 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 	// Board状态变化通知 (观察者模式) ---------
 	
 	private Set boardListenerSet = new HashSet();
-	
+
+	@Override
 	public void addBoardListener(BoardListener boardListener) {
 		boardListenerSet.add(boardListener);
 	}
-	
+
+	@Override
 	public void removeBoardListener(BoardListener boardListener) {
 		boardListenerSet.remove(boardListener);
 	}
@@ -300,11 +308,13 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 	// 移除行事件通知 (观察者模式)---
 	
 	private Set removeRowsListenerSet = new HashSet();
-	
+
+	@Override
 	public void addRemoveRowsListener(RemoveRowsListener removeRowsListener) {
 		removeRowsListenerSet.add(removeRowsListener);
 	}
-	
+
+	@Override
 	public void removeRemoveRowsListener(RemoveRowsListener removeRowsListener) {
 		removeRowsListenerSet.remove(removeRowsListener);
 	}
@@ -322,10 +332,12 @@ public class BoardContext implements Board, BoardSubject, BoardCommandReceiver, 
 	
 	private Set overListenerSet = new HashSet();
 
+	@Override
 	public void addOverListener(OverListener overListener) {
 		overListenerSet.add(overListener);
 	}
 
+	@Override
 	public void removeOverListener(OverListener overListener) {
 		overListenerSet.remove(overListener);
 	}

@@ -39,7 +39,8 @@ public class PlayCanvas extends BoardCanvas implements BlockListener, LocationLi
 	}
 	
 	private Block block;
-	
+
+	@Override
 	public void blockChanged(Block block) {
 		this.block = block;
 		repaint();
@@ -60,12 +61,14 @@ public class PlayCanvas extends BoardCanvas implements BlockListener, LocationLi
 	}
 	
 	private Location location;
-	
+
+	@Override
 	public void locationChanged(Location location) {
 		this.location = location;
 		repaint();
 	}
-	
+
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (block != null && location != null) {

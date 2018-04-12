@@ -54,75 +54,93 @@ public class CommandManager implements CommandFacade {
 	}
 	
 	// CommandFacade -----------
-	
+
+	@Override
 	public Command getExitCommand() {
 		return exitCommand;
 	}
 
+	@Override
 	public Command getReadyCommand() {
 		return readyCommand;
 	}
 
+	@Override
 	public Command getCancelCommand() {
 		return cancelCommand;
 	}
 
+	@Override
 	public Command getMoveBottomCommand() {
 		return moveBottomCommand;
 	}
 
+	@Override
 	public Command getMoveDownCommand() {
 		return moveDownCommand;
 	}
 
+	@Override
 	public Command getMoveLeftCommand() {
 		return moveLeftCommand;
 	}
 
+	@Override
 	public Command getMoveRightCommand() {
 		return moveRightCommand;
 	}
 
+	@Override
 	public Command getTurnNextCommand() {
 		return turnNextCommand;
 	}
 
+	@Override
 	public Command getTurnPreviousCommand() {
 		return turnPreviousCommand;
 	}
 
+	@Override
 	public Command getSpeedDownCommand() {
 		return speedDownCommand;
 	}
 
+	@Override
 	public Command getSpeedUpCommand() {
 		return speedUpCommand;
 	}
 
+	@Override
 	public Command getClearBoardCommand() {
 		return clearBoardCommand;
 	}
 
+	@Override
 	public Command getAddOneRowCommand() {
 		return addOneRowCommand;
 	}
 
+	@Override
 	public Command getRemoveOneRowCommand() {
 		return removeOneRowCommand;
 	}
 
+	@Override
 	public Command getAddTwoRowsCommand() {
 		return addTowRowsCommand;
 	}
 
+	@Override
 	public Command getRemoveTwoRowsCommand() {
 		return removeTowRowsCommand;
 	}
 
+	@Override
 	public Command getAddThreeRowsCommand() {
 		return addThreeRowsCommand;
 	}
 
+	@Override
 	public Command getRemoveThreeRowsCommand() {
 		return removeThreeRowsCommand;
 	}

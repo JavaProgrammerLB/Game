@@ -14,7 +14,8 @@ public class TurnBlockCanvas extends BlockCanvas {
 	public TurnBlockCanvas(BoxDecorator boxDecorator) {
 		super(boxDecorator);
 	}
-	
+
+	@Override
 	protected Block getBlock(Block block) {
 		if (block == null) {
 			return null;

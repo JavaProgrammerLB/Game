@@ -21,11 +21,12 @@ public class Member implements GroupCommandReceiver {
 	}
 	
 	// GroupCommandReceiver ----
-	
+	@Override
 	public void free() {
 		this.group = 0;
 	}
 
+	@Override
 	public void join(int group) {
 		this.group = group;
 	}

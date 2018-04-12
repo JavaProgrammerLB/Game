@@ -72,13 +72,15 @@ public class Player implements SubjectFacade, ReceiverFacade, ReadyCommandReceiv
 		}
 		this.gameSubject = gameSubject;
 	}
-	
+
+	@Override
 	public void gameStarted() {
 		boardContext.clearBoard();
 		blockContext.gameStarted();
 		downCommandSender.gameStarted();
 	}
-	
+
+	@Override
 	public void gameStoped() {
 		blockContext.gameStoped();
 		downCommandSender.gameStoped();
@@ -92,7 +94,8 @@ public class Player implements SubjectFacade, ReceiverFacade, ReadyCommandReceiv
 	public boolean isReady() {
 		return isReady;
 	}
-	
+
+	@Override
 	public void ready() {
 		if (! isReady) {
 			isReady = true;
@@ -100,6 +103,7 @@ public class Player implements SubjectFacade, ReceiverFacade, ReadyCommandReceiv
 		}
 	}
 
+	@Override
 	public void cancel() {
 		if (isReady) {
 			isReady = false;
@@ -111,10 +115,12 @@ public class Player implements SubjectFacade, ReceiverFacade, ReadyCommandReceiv
 	
 	private Set readyListenerSet = new HashSet();
 
+	@Override
 	public void addReadyListener(ReadyListener readyListener) {
 		readyListenerSet.add(readyListener);
 	}
 
+	@Override
 	public void removeReadyListener(ReadyListener readyListener) {
 		readyListenerSet.remove(readyListener);
 	}
@@ -129,69 +135,85 @@ public class Player implements SubjectFacade, ReceiverFacade, ReadyCommandReceiv
 	}
 	
 	// SubjectFacade -----------
-	
+
+	@Override
 	public GameSubject getGameSubject() {
 		return gameSubject;
 	}
-	
+
+	@Override
 	public ReadySubject getReadySubject() {
 		return this;
 	}
-	
+
+	@Override
 	public OverSubject getOverSubject() {
 		return boardContext;
 	}
-	
+
+	@Override
 	public BoardSubject getPlayBoardSubject() {
 		return boardContext;
 	}
 
+	@Override
 	public BlockSubject getPlayBlockSubject() {
 		return blockContext;
 	}
 
+	@Override
 	public LocationSubject getPlayLocationSubject() {
 		return blockContext;
 	}
 
+	@Override
 	public BlockSubject getNextBlockSubject() {
 		return (Preview)previewQueue.get(0);
 	}
 
+	@Override
 	public BlockSubject getAfterBlockSubject() {
 		return (Preview)previewQueue.get(1);
 	}
-	
+
+	@Override
 	public SpeedSubject getSpeedSubject() {
 		return downCommandSender;
 	}
-	
+
+	@Override
 	public RemoveRowsSubject getRemoveRowsSubject() {
 		return boardContext;
 	}
 
 	// ReceiverFacade ------------
 
+	@Override
 	public TurnCommandReceiver getTurnCommandReceiver() {
 		return blockContext;
 	}
 
+	@Override
 	public MoveCommandReceiver getMoveCommandReceiver() {
 		return blockContext;
 	}
 
+	@Override
 	public SpeedCommandReceiver getSpeedCommandReceiver() {
 		return downCommandSender;
 	}
 
+	@Override
 	public BoardCommandReceiver getBoardCommandReceiver() {
 		return boardContext;
 	}
 
+	@Override
 	public ReadyCommandReceiver getReadyCommandReceiver() {
 		return this;
 	}
 
+	@Override
 	public GroupCommandReceiver getGroupCommandReceiver() {
 		return member;
 	}

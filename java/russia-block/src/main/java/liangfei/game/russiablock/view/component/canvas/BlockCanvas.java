@@ -56,14 +56,15 @@ public class BlockCanvas extends JPanel implements BlockListener {
 	}
 	
 	private Block block;
-	
+
+	@Override
 	public void blockChanged(Block block) {
 		this.block = getBlock(block);
 		repaint();
 	}
 	
 	// 重绘 ---
-	
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.setColor(super.getBackground());

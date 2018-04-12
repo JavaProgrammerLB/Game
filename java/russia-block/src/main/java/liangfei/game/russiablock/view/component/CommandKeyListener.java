@@ -16,6 +16,7 @@ public class CommandKeyListener implements KeyListener {
 		this.commandMap = commandMap;
 	}
 
+	@Override
 	public void keyPressed(KeyEvent e) {
 		Integer key = new Integer(e.getKeyCode());
 		if (commandMap.containsKey(key)) {
@@ -25,10 +26,12 @@ public class CommandKeyListener implements KeyListener {
 		SwingUtilities.getRootPane(e.getComponent()).requestFocus();
 	}
 
+	@Override
 	public void keyReleased(KeyEvent e) {
 		// ignore
 	}
 
+	@Override
 	public void keyTyped(KeyEvent e) {
 		// ignore
 	}

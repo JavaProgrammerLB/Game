@@ -18,7 +18,8 @@ public class Preview implements BlockProvider, BlockSubject {
 	public Preview(BlockProvider blockProvider) {
 		this.blockProvider = blockProvider;
 	}
-	
+
+	@Override
 	public Block getNextBlock() {
 		Block oldBlock = block;
 		if (oldBlock == null) {
@@ -32,11 +33,13 @@ public class Preview implements BlockProvider, BlockSubject {
 	// 观察者 --------------
 	
 	private Set blockListenerSet = new HashSet();
-	
+
+	@Override
 	public void addBlockListener(BlockListener blockListener) {
 		blockListenerSet.add(blockListener);
 	}
-	
+
+	@Override
 	public void removeBlockListener(BlockListener blockListener) {
 		blockListenerSet.remove(blockListener);
 	}

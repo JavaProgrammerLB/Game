@@ -12,7 +12,8 @@ public class StandardBlockBuilder implements BlockBuilder {
 	public StandardBlockBuilder() {
 		
 	}
-	
+
+	@Override
 	public Collection build() {
 		return getBlocksByArray();
 	}
