@@ -6,9 +6,9 @@ import java.awt.event.WindowEvent;
 
 public class Yard extends Frame {
 
-    private final static int ROWS = 200;
-    private final static int COLS = 200;
-    private final static int BLOCK_SIZE = 5;
+    private final static int ROWS = 50;
+    private final static int COLS = 50;
+    private final static int BLOCK_SIZE = 20;
 
     public void launch(){
         this.setLocation(200, 10);
@@ -16,7 +16,7 @@ public class Yard extends Frame {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
+                System.exit(0);
             }
         });
         this.setVisible(true);
@@ -27,6 +27,13 @@ public class Yard extends Frame {
         Color color = g.getColor();
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, COLS * BLOCK_SIZE, ROWS * BLOCK_SIZE);
+        g.setColor(Color.DARK_GRAY);
+        for (int i = 0; i < ROWS - 1; i ++){
+            g.drawLine(0, i * BLOCK_SIZE,ROWS * BLOCK_SIZE, i * BLOCK_SIZE);
+        }
+        for (int i = 0; i < COLS - 1;i ++){
+            g.drawLine(i * BLOCK_SIZE, 0, i * BLOCK_SIZE, COLS * BLOCK_SIZE);
+        }
         g.setColor(color);
     }
 
